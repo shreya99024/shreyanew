@@ -1,0 +1,48 @@
+Monday, Oct 21st 2024
+=======================
+---today's code ---
+import pandas as pd
+import numpy as np
+countries = ['India','France','England'] 
+capitals = ['New Delhi','Paris','London'] 
+arr = np.array(capitals) 
+dicts = {'a':10, 'b':20, 'c':30, 'd':40, 'e':50, 'f':60, 'g':70, 'h':80}
+
+r1 = pd.Series(data = countries)  # creating Series From List
+#print(r1)
+r2 = pd.Series(data = capitals, index = countries)  # Setting custom labels for our series
+#print(r2)
+r3 = pd.Series(arr)   #Creating a Series from Numpy array
+#print(r3)
+r4 = pd.Series(dicts)   #Creating a Series from dictionary
+#print(r4)
+print()
+#print(r4 // r4)
+series_shape=pd.Series(data=[11.2,18.6,22.5,25.2], index=['a','b','c','d']) 
+print(series_shape.shape)
+
+#series_hasnans=pd.Series(data=[11.2,5,22.5], index=['a','b','c']) 
+series_hasnans=pd.Series(data=['Asha','Uday',None], index=['a','b','c']) 
+print('NaN ??? ',series_hasnans.hasnans)
+#Creating Data frame with List
+fruits = ['Apple','Banana','Coconut','Dates']
+fruits_df = pd.DataFrame(fruits, columns=['Fruit'],index=['F1','F2','F3','F4'])         # columns is used to set the column name
+print(fruits_df)
+emp = { 'IDS': (100,200,300) , 'Name' : ['Shashi','Vinutha','Aarhi'] }
+df = pd.DataFrame(emp)
+print('employ details ',df)
+data = {
+    'Category': ['A', 'B', 'A', 'B', 'C', 'A', 'C','A','X'],
+    'Values': [10, 20, None, 40, 50, 60, 70,125,None]
+}
+
+df = pd.DataFrame(data)
+
+# Grouping by 'Category' and calculating the sum of 'Values'
+grouped = df.groupby('Category')['Values'].sum().reset_index()
+
+print(grouped)
+#Group by 'Category' and calculate sum and mean of 'Values'
+grouped = df.groupby('Category')['Values'].agg(['sum', 'mean','count','max','min']).reset_index()
+
+print(grouped)
