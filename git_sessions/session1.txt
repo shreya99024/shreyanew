@@ -1,0 +1,41 @@
+Tuesday, Oct 22nd 2024
+==========================
+Pandas 
+      \
+     various downstream system (vendors, dealers, sub-contractor)
+                                     |
+                              different technologies 
+                                        HETROGENOUS 
+                                           java spr boot
+                                           PHP web app
+                                           ASP.net .....SQL server ...excel
+have adhere to a common template 
+                ID name DOT time amt order ID store ID
+                |   |   |     \    |  |    |   \     \
+          which are source of data
+                                  
+                                  excel   - S1   xlsx
+                                  csv
+                                  json
+                                  DB -----> .....excel
+                                  Cloud   <<<<< Java 
+
+issues ....
+       duplicate records
+       missing values 
+       invalid colmn names / types
+       file could be empty
+       file might not exist (got deleted)
+       file donot have permission to access
+  DataFrame....GRID 
+           \
+           dict  KEY:VALUE
+NOTE:
+   list can contain tuple
+   set can  contain tuple
+   dict value can be tuple
+   tuple can contain list
+   dict value can be list
+   dict value can be set 
+   dict value can be ANOTHER DICT 
+>>>> set can never have another set, list or dict <<<< DIALLOWED 
