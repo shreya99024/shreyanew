@@ -39,3 +39,24 @@ NOTE:
    dict value can be set 
    dict value can be ANOTHER DICT 
 >>>> set can never have another set, list or dict <<<< DIALLOWED 
+
+# Sample data for orders
+data = {
+    'OrderID': [101, 102, 103, 101, 104, 102],
+    'CustomerID': [1, 2, 3, 1, 4, 2],
+    'ProductID': [1001, 1002, 1003, 1001, 1004, 1002],
+    'Quantity': [5, 2, 1, 5, 3, 2],
+    'OrderDate': ['2024-01-01', '2024-01-02', '2024-01-03', '2024-01-01', '2024-01-04', '2024-01-02']
+}
+
+# Create a DataFrame
+df_orders = pd.DataFrame(data)
+
+print("Original Orders DataFrame:")
+print(df_orders)
+
+# Identify and drop duplicates based on 'OrderID'
+df_unique_orders = df_orders.drop_duplicates(subset='OrderID', keep='first')
+
+print("\nOrders DataFrame after dropping duplicates:")
+print(df_unique_orders)
