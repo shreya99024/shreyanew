@@ -1,0 +1,17 @@
+import pandas as pd
+
+source_file=['11aa12000','22bb11000','33cc14000','44dd10000']
+
+output=[]
+
+for i in source_file:
+    id = i[:2]
+    name = i[2:4]
+    salary = i[4:]
+    
+    output.append([id,name,salary])
+
+target_file=pd.DataFrame(output,columns=['Id','Name','Salary'])
+
+print('target_file')
+print(target_file)
