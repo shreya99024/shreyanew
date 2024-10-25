@@ -1,0 +1,20 @@
+import pandas as pd
+
+#reading excel file
+df=pd.read_excel('customer_file.xlsx')
+
+#printing unique data
+cust_target=df.drop_duplicates()
+print('cust_target data')
+print(cust_target)
+
+print('-------------------------')
+
+#Group by the columns and count occurrences
+no_of_instances = df.groupby(df.columns.tolist()).size().reset_index(name='count')
+
+#filter the rows with more than 1 instance
+cust_duplicate = no_of_instances[no_of_instances['count'] > 1]
+
+print('cust_duplicate data')
+print(cust_duplicate)
