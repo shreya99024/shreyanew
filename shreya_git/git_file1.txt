@@ -1,0 +1,12 @@
+data = {'A': [1, 2, 2, 3, 4, 4, 5], 
+        'B': [5, 6, 6, 7, 8, 8, 9]}
+
+df = pd.DataFrame(data)
+
+# Step 1: Group by the columns and count occurrences
+count_df = df.groupby(df.columns.tolist()).size().reset_index(name='count')
+
+# Step 2: Filter the rows with more than 1 occurrence (duplicates)
+duplicates_with_count = count_df[count_df['count'] > 1]
+
+print(duplicates_with_count)
