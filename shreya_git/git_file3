@@ -1,0 +1,14 @@
+DB related operation - connecting to MySQL
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Establish connection to MySQL database
+engine = create_engine('mysql+pymysql://test1:hello1@localhost:3306/testdb')  # Update with your credentials
+
+# -----------------------------------------
+# 1. READ operation: Retrieve records from a table
+# -----------------------------------------
+# Read from 'employ' table
+df = pd.read_sql('SELECT * FROM employ', con=engine)
+print("Initial data in 'employ' table:")
+print(df)
